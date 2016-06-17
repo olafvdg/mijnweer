@@ -11,11 +11,10 @@
 Grijspaarde.nl
 </author>
 
-<icon src="img/ionic.png" />
+<icon src="img/ionic.png" /> 
 
 <access origin="*" />
 
-<feature name="http://api.phonegap.com/1.0/network"/>
-
+<feature name="http://api.phonegap.com/1.0/network" />
 
 </widget>
