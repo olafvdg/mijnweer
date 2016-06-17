@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0" 
+	id        = "nl.grijspaarde.mijnweer" 
+	version   = "1.0" >
+
+<name>Mijn Weer</name>
+
+<description>Weer of geen weer...</description>
+
+<author href="http://www.grijspaarde.nl" email="olaf@grijspaarde.nl">
+Grijspaarde.nl
+</author>
+
+<icon src="img/ionic.png" />
+
+<access origin="*" />
+
+<feature name="http://api.phonegap.com/1.0/network"/>
+
+
+</widget>
