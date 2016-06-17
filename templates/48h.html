@@ -1,0 +1,21 @@
+<ion-view view-title="Komende 48 uur">
+  <ion-content class="has-header has-footer">
+    <ion-list>
+      <div ng-repeat="playlist in playlists">
+        <div ng-hide="playlist.day_text==''">
+          <div class="item item-divider">{{playlist.day_text}}</div>
+        </div>  
+        <div class="item row h48">
+          <div class="col">{{playlist.hour}} uur</div>
+          <div class="col">{{playlist.temperature}}°C</div>
+          <div class="col">{{playlist.precip_amount}}</div>
+          <div class="col"><div class="weercijfer-{{playlist.score_value}}">{{playlist.score_value}}</div></div>
+          <div class="col"><div class="{{playlist.forecast_css_class}}"></div></div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">{{update}}</div>
+</div>
