@@ -1,5 +1,11 @@
 angular.module('mijnweer.controllers', [])
 
+.filter('spacetobreak', function() {
+	return function(input) {
+		return input.replace(' ', '<br/>');
+	}
+})
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   
   // With the new view caching in Ionic, Controllers are only called
@@ -42,13 +48,32 @@ angular.module('mijnweer.controllers', [])
 })
 
 .controller('48hCtrl', function($scope, $http) {
+  $scope.doRefresh = function() {
     $http.jsonp("http://www.grijspaarde.nl/weer/2days.php?callback=JSON_CALLBACK")
+        .success(function(data) {
+            //console.log(data);
+            $scope.update = data.update;
+            $scope.voorspellingen = data.data;
+        })
+        .finally(function() {
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+  };
+  $scope.doRefresh();
+})
+
+.controller('14dCtrl', function($scope, $http) {
+  $scope.doRefresh = function() {
+    $http.jsonp("http://www.grijspaarde.nl/weer/14days.php?callback=JSON_CALLBACK")
         .success(function(data) {
             console.log(data);
             $scope.update = data.update;
-            $scope.playlists = data.data;
+            $scope.voorspellingen = data.data;
+            console.log(data.data);
         })
+        .finally(function() {
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+  };
+  $scope.doRefresh();
 })
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});

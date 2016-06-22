@@ -51,12 +51,12 @@ angular.module('mijnweer', ['ionic', 'mijnweer.controllers'])
       }
     })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+  .state('app.14d', {
+    url: "/14d",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/14d.html",
+        controller: '14dCtrl'
       }
     }
   });

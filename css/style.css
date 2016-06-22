@@ -2,14 +2,19 @@
 .h48 .col {
 	line-height:36px;
 }
+.d14 div {
+    font-size: 4vw;
+    line-height: 1.2;
+}
 [class*="weercijfer-"] {
 	width:36px;
 	height:36px;
 	border-radius:18px;
 	background-color:red;
 	color:#666666;
-	line-height: 36px;
-    text-align: center
+	line-height: 36px !important;
+    text-align: center;
+	margin:0 auto;
 }
 .weercijfer-1 {background-color: #ff0000; color: #ffffff;}
 .weercijfer-2 {background-color: #ff3200; color: #ffffff;}

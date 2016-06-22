@@ -1,0 +1,35 @@
+<ion-view view-title="Voorspelling 14 dagen">
+  <ion-header class="bar bar-subheader">
+    <div class="row d14">
+      <div class="col"></div>
+      <div class="col">Min.</div>
+      <div class="col">Max.</div>
+      <div class="col"></div>
+      <div class="col"></div>
+      <div class="col"></div>
+    </div>
+  </ion-header>
+  <ion-content class="has-header has-subheader has-footer">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <div ng-repeat="voorspelling in voorspellingen">
+        <div ng-hide="voorspelling[0]=='&nbsp;'">
+          <div class="item row d14">
+            <div class="col"><div ng-bind-html="voorspelling[0] | spacetobreak"></div></div>
+            <div class="col">{{voorspelling[2]}}C</div>
+            <div class="col">{{voorspelling[3]}}C</div>
+            <div class="col">{{voorspelling[5]}}<br/>{{voorspelling[6]}}</div>
+            <div class="col" style="text-align:center;"><div class="weercijfer-{{voorspelling[7]}}">{{voorspelling[7]}}</div></div>
+            <div class="col"><div class="{{voorspelling[1]}}"></div></div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </ion-content>
+</ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">{{update}}</div>
+</div>
