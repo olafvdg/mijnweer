@@ -4,6 +4,7 @@
       pulling-text="Pull to refresh..."
       on-refresh="doRefresh()">
    </ion-refresher>
+  <!--
     <ion-list>
       <div ng-repeat="voorspelling in voorspellingen">
         <div ng-hide="voorspelling.day_text==''">
@@ -18,6 +19,19 @@
         </div>
       </div>
     </ion-list>
+    -->
+    <ion-item class="h48item" collection-repeat="voorspelling in voorspellingen" item-height="voorspelling.day_text ? 92 : 57" item-render-buffer="10" >
+        <div ng-hide="voorspelling.day_text==''">
+          <div class="item item-divider h48daytext">{{voorspelling.day_text}}</div>
+        </div>  
+        <div class="row h48">
+          <div class="col">{{voorspelling.hour}} uur</div>
+          <div class="col">{{voorspelling.temperature}}°C</div>
+          <div class="col">{{voorspelling.precip_amount}}</div>
+          <div class="col"><div class="weercijfer-{{voorspelling.score_value}}">{{voorspelling.score_value}}</div></div>
+          <div class="col"><div class="{{voorspelling.forecast_css_class}}"></div></div>
+        </div>
+      </ion-item>
   </ion-content>
 </ion-view>
 <div class="bar bar-footer bar-balanced">

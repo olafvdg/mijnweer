@@ -14,20 +14,16 @@
       pulling-text="Pull to refresh..."
       on-refresh="doRefresh()">
     </ion-refresher>
-    <ion-list>
-      <div ng-repeat="voorspelling in voorspellingen">
-        <div ng-hide="voorspelling[0]=='&nbsp;'">
-          <div class="item row d14">
-            <div class="col"><div ng-bind-html="voorspelling[0] | spacetobreak"></div></div>
-            <div class="col">{{voorspelling[2]}}C</div>
-            <div class="col">{{voorspelling[3]}}C</div>
-            <div class="col">{{voorspelling[5]}}<br/>{{voorspelling[6]}}</div>
-            <div class="col" style="text-align:center;"><div class="weercijfer-{{voorspelling[7]}}">{{voorspelling[7]}}</div></div>
-            <div class="col"><div class="{{voorspelling[1]}}"></div></div>
-          </div>
+    <ion-item collection-repeat="voorspelling in voorspellingen" item-render-buffer="10">
+        <div class="row d14">
+          <div class="col"><div ng-bind-html="voorspelling[0] | spacetobreak"></div></div>
+          <div class="col">{{voorspelling[2]}}C</div>
+          <div class="col">{{voorspelling[3]}}C</div>
+          <div class="col">{{voorspelling[5]}}<br/>{{voorspelling[6]}}</div>
+          <div class="col" style="text-align:center;"><div class="weercijfer-{{voorspelling[7]}}">{{voorspelling[7]}}</div></div>
+          <div class="col"><div class="{{voorspelling[1]}}"></div></div>
         </div>
-      </div>
-    </ion-list>
+    </ion-item>
   </ion-content>
 </ion-view>
 <div class="bar bar-footer bar-balanced">
