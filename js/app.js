@@ -33,11 +33,12 @@ angular.module('mijnweer', ['ionic', 'mijnweer.controllers'])
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.rain', {
+    url: "/rain",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/rain.html",
+        controller: 'rainCtrl'
       }
     }
   })

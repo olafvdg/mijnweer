@@ -6,6 +6,19 @@ angular.module('mijnweer.controllers', [])
 	}
 })
 
+.filter('parsedate', function() {
+	return function(input) {
+		var mydate = Date.parse(input) - 7200000;
+    return mydate;
+	}
+})
+
+.filter('invert', function() {
+	return function(input) {
+    return 100-input;
+	}
+})
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   
   // With the new view caching in Ionic, Controllers are only called
@@ -66,10 +79,25 @@ angular.module('mijnweer.controllers', [])
   $scope.doRefresh = function() {
     $http.jsonp("http://www.grijspaarde.nl/weer/14days.php?callback=JSON_CALLBACK")
         .success(function(data) {
-            console.log(data);
+            //console.log(data);
             $scope.update = data.update;
             $scope.voorspellingen = data.data;
             console.log(data.data);
+        })
+        .finally(function() {
+          $scope.$broadcast('scroll.refreshComplete');
+        });
+  };
+  $scope.doRefresh();
+})
+
+.controller('rainCtrl', function($scope, $http) {
+  $scope.doRefresh = function() {
+    $http.jsonp("http://www.grijspaarde.nl/weer/rain.php?callback=JSON_CALLBACK")
+        .success(function(data) {
+            console.log(data.data);
+            $scope.update = data.noRainLabel;
+            $scope.regendata = data.data;
         })
         .finally(function() {
           $scope.$broadcast('scroll.refreshComplete');

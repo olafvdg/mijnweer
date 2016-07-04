@@ -1,0 +1,18 @@
+<ion-view view-title="Regenradar">
+  <ion-content class="has-header has-footer">
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+   </ion-refresher>
+    <ion-item class="rainitem" collection-repeat="voorspelling in regendata" style="padding:0;">
+        <div class="row rain" style="padding:0;background: linear-gradient(to right, #ffffff 0%,#ffffff {{voorspelling.percentage | invert}}%,#9fd8ef {{voorspelling.percentage | invert}}%,#d2eff2 100%);">
+            <div class="col" style="padding:5px 20px;">
+	            {{voorspelling.date | parsedate | date:'HH:mm'}} ({{voorspelling.text}})
+            </div>
+        </div>
+    </ion-item>
+  </ion-content>
+</ion-view>
+<div class="bar bar-footer bar-balanced">
+  <div class="title">{{update}}</div>
+</div>
